@@ -151,12 +151,9 @@ class MediaController extends Controller
      */
     public function destroy($id)
     {
-        $post = DB::table('articles')->where('article_id', $id);
-        $media = DB::table('media')->where('article_id', $id);
-
+        $media = DB::table('media')->where('media_id', $id);
         $media->delete();
-        $post->delete();
 
-        return redirect()->route('admin.articles.index');
+        return redirect()->route('admin.events.index');
     }
 }

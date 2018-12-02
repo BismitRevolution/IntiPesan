@@ -3,7 +3,12 @@
 
 @if(!$media->isEmpty())
 	@foreach($media as $item)
-    <a href="{{ '/storage/'.$item->path }}">{{ $item->section.$item->filename }}</a>
+    <a href="{{ '/storage/'.$item->path }}">{{ $item->section."-".$item->filename }}</a>
+		<form class="" action="{{ route('admin.media.destroy', $item->media_id) }}" method="POST" enctype="multipart/form-data">
+			{{ csrf_field() }}
+			<input hidden type="hidden" name="_method" value="DELETE" />
+  		<input type="submit" name="" value="delete file">
+		</form>
     <br>
   @endforeach
 @else

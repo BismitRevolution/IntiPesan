@@ -177,7 +177,7 @@ class NotificationController extends Controller
         }
     }
 
-    public function confirmation($id, $username, $password) {
+    public function confirmation($id, $path, $username, $password) {
         $data = DB::table('registrant_datas')
                             ->where('registrant_datas.registrant_id', '=', $id)
                             ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
@@ -185,7 +185,7 @@ class NotificationController extends Controller
                             ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
                             ->first();
         if ($data != null) {
-            app(MailController::class)->register($data, $username, $password);
+            app(MailController::class)->register($data, $path, $username, $password);
             $this->log($data);
         }
     }

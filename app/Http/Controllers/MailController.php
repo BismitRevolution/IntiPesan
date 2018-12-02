@@ -12,9 +12,9 @@ use App\RegistrantData;
 
 class MailController extends Controller
 {
-    public function register($data, $username, $password) {
+    public function register($data, $path, $username, $password) {
         // $notification = Notification::find($id);
-        Mail::to($data->email)->send(new RegistrationEmail($data, $username, $password));
+        Mail::to($data->email)->send(new RegistrationEmail($data, $path, $username, $password));
     }
 
     public function notify($data) {

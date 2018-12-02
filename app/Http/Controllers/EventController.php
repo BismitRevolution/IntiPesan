@@ -60,7 +60,7 @@ class EventController extends Controller
         ]);
 
        $event = new Event;
-       $event->event_code = substr($request->title, 3);
+       $event->event_code = substr(str_replace(' ', '', $request->title), 0, 3);
        $event->title = $request->title;
        $event->category = $request->category;
        $event->description = $request->description;

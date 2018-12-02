@@ -16,7 +16,7 @@ class CreateTableNotification extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('notification_id');
             $table->integer('type');
-            $table->string('content');
+            $table->longText('content');
             // $table->string('location');
             $table->date('publication_date')->nullable();
             $table->time('publication_time')->nullable();

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="index.html">Admin Dashboard</a>
+    <a class="navbar-brand mr-1" href="{{ route('admin.home') }}">Admin Dashboard</a>
     <button class="btn btn-link btn-sm text-white order-0" id="sidebarToggle" href="#">
         <i class="fas fa-chevron-circle-left"></i>
     </button>

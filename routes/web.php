@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::resource('/articles', 'ArticleController');
 });
 
-Route::group(['prefix' => 'registrant'], function () {
+Route::group(['prefix' => 'registrant', 'as' => 'registrant.'], function () {
   Route::get('/login', 'RegistrantAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'RegistrantAuth\LoginController@login');
   Route::post('/logout', 'RegistrantAuth\LoginController@logout')->name('logout');

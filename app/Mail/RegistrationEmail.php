@@ -17,9 +17,10 @@ class RegistrationEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($data, $username, $password)
+    public function __construct($data, $path, $username, $password)
     {
         $this->data = $data;
+        $this->path = $path;
         $this->username = $username;
         $this->password = $password;
     }
@@ -35,6 +36,7 @@ class RegistrationEmail extends Mailable
                 // ->subject('Reminder')
                 ->view('mail.registration')
                 ->with('data', $this->data)
+                ->with('path', $this->path)
                 ->with('username', $this->username)
                 ->with('password', $this->password);
     }

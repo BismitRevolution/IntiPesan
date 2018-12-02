@@ -18,10 +18,10 @@ class CreateTableEvent extends Migration
             $table->string('event_code');
             $table->string('title');
             $table->integer('category')->unsigned();
-            $table->string('description');
+            $table->longText('description');
             $table->integer('registered')->unsigned()->default(0);
             $table->integer('quota')->unsigned();
-            $table->string('location');
+            $table->longText('location');
             $table->date('start_date');
             $table->time('start_time');
             $table->date('end_date');

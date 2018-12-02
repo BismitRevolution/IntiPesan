@@ -8,6 +8,7 @@ use App\Http\Controllers\NotificationController;
 use App\Event;
 use App\Registrant;
 use App\RegistrantData;
+use Endroid\QrCode\QrCode;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -87,12 +88,20 @@ class RegistrantController extends Controller
         $registrant->payment_method = $request->payment_method;
         // $registrant->status = $request->status;
         // $registrant->certificate = $request->certificate;
+        $qrcode = new QrCode($username);
+        $qrcode->setSize(300);
+        $hash_name = str_random(24);
+        $path = sprintf('%s/%s%s', public_path('img/qrcodes'), $hash_name, '.png');
+        $web_path = sprintf('%s/%s/%s%s', env('APP_URL', 'localhost:8000'), 'img/qrcodes', $hash_name, '.png');
+        $qrcode->writeFile($path);
+        $registrant->qr_path = $web_path;
+
         $registrant->event_id = $request->event_id;
         $registrant->created_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
         $registrant->updated_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
         $registrant->save();
 
-        app(NotificationController::class)->confirmation($registrant->registrant_id, $username, $password);
+        app(NotificationController::class)->confirmation($registrant->registrant_id, $path, $username, $password);
 
         return redirect()->route('admin.registrants.index');
         // return redirect()->route('admin.registrants.show', $registrant->registrant_id);

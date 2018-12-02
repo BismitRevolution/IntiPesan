@@ -15,6 +15,7 @@ class CreateTableRegistrantData extends Migration
     {
         Schema::create('registrant_datas', function (Blueprint $table) {
             $table->increments('registrant_id');
+            $table->string('registration_code');
             $table->string('name');
             $table->string('email');
             $table->string('position');
@@ -25,7 +26,7 @@ class CreateTableRegistrantData extends Migration
             $table->integer('status')->unsigned()->default(0);
             $table->integer('certificate')->unsigned()->default(0);
             $table->integer('event_id')->unsigned();
-            $table->foreign('email')->references('email')->on('registrants');
+            $table->foreign('registration_code')->references('email')->on('registrants');
             $table->foreign('event_id')->references('event_id')->on('events');
             $table->timestamps();
         });

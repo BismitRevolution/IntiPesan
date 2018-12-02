@@ -15,6 +15,7 @@ class CreateTableEvent extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('event_id')->unsigned();
+            $table->string('event_code');
             $table->string('title');
             $table->integer('category')->unsigned();
             $table->string('description');

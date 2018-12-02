@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Notification;
 
-class RegistrationEmail extends Mailable
+class NotificationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,11 +17,9 @@ class RegistrationEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($data, $username, $password)
+    public function __construct($data)
     {
         $this->data = $data;
-        $this->username = $username;
-        $this->password = $password;
     }
 
     /**
@@ -33,9 +31,7 @@ class RegistrationEmail extends Mailable
     {
         return $this->from(env('MAIL_FROM_ADDRESS', 'admin@intipesan.com'))
                 // ->subject('Reminder')
-                ->view('mail.registration')
-                ->with('data', $this->data)
-                ->with('username', $this->username)
-                ->with('password', $this->password);
+                ->view('mail.notification')
+                ->with('data', $this->data);
     }
 }

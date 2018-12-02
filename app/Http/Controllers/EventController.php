@@ -60,7 +60,7 @@ class EventController extends Controller
         ]);
 
        $event = new Event;
-
+       $event->event_code = substr($request->title, 3);
        $event->title = $request->title;
        $event->category = $request->category;
        $event->description = $request->description;
@@ -189,10 +189,12 @@ class EventController extends Controller
         $event = DB::table('events')->where('event_id', $id);
         $medias = DB::table('media')->where('event_id', $id);
         $notifications = DB::table('notifications')->where('event_id', $id);
+        $logs = DB::table('logs')->where('event_id', $id);
         $registrants = DB::table('registrant_datas')->where('event_id', $id);
 
         $notifications->delete();
         $registrants->delete();
+        $logs->delete();
         $medias->delete();
         $event->delete();
 

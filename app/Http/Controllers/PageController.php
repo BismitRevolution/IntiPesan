@@ -36,7 +36,8 @@ class PageController extends Controller
                             ->where('notifications.type', '=', -1)
                             ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
                             ->first();
-        return view('mail.notification')->with([
+        return view('mail.registration')->with([
+        // return view('mail.notification')->with([
             'data' => $data,
             'path' => 'http://192.168.1.15:8000/img/qrcodes/LVZ3mDXrHG9bQQDfLp1oklYt.png',
             'username' => 'username',

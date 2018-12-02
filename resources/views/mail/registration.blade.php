@@ -27,10 +27,10 @@
     </div>
 </div>
 <div class="row" style="margin-top: 35px;">
-    <p>{{ $data->content }}</p>
+    <p class="col-12">{{ $data->content }}</p>
 </div>
 <div class="row">
-    <h5><small>Lokasi Kegiatan</small></h5>
-    <p>{{ $data->location }}</p>
+    <h5 class="col-12"><small>Lokasi Kegiatan</small></h5>
+    <p class="col-12">{{ $data->location }}</p>
 </div>
 @endsection

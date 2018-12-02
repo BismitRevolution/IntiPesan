@@ -7,8 +7,3 @@
 @section('map')
 {{ $data->location }}
 @endsection
-
-@section('credential')
-{{ $username }}
-{{ $password }}
-@endsection

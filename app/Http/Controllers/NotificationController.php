@@ -28,6 +28,7 @@ class NotificationController extends Controller
             //                     ->where('notifications.event_id', '=', $registrant->event_id)
             //                     ->get();
         }
+        // dd($notifications);
         return view('admin.notifications.index')->with(['notifications'=> $notifications]);
     }
 
@@ -172,13 +173,28 @@ class NotificationController extends Controller
         // $logs = DB::table('logs')->get();
         foreach ($datas as $data) {
             app(MailController::class)->notify($data);
-            $log = new Log;
-            $log->email = $data->email;
-            $log->event_id = $data->event_id;
-            $log->created_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
-            $log->updated_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
-            $log->save();
+            $this->log($data);
         }
+    }
+
+    public function confirmation($id, $username, $password) {
+        $data = DB::table('registrant_datas')
+                            ->where('registrant_datas.registrant_id', '=', $id)
+                            ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
+                            ->where('notifications.type', '=', -1)
+                            ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
+                            ->first();
+        app(MailController::class)->register($data, $username, $password);
+        $this->log($data);
+    }
+
+    public function log($data) {
+        $log = new Log;
+        $log->email = $data->email;
+        $log->event_id = $data->event_id;
+        $log->created_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
+        $log->updated_at = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
+        $log->save();
     }
 
     /**

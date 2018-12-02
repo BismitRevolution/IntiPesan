@@ -39,6 +39,12 @@
 					</div>
 				</div>
 				<div class="form-group row">
+					<label for="subject" class="col-sm-2 col-form-label">Subject</label>
+					<div class="col-sm-10">
+						<input id="subject" name="subject" class="form-control" type="text" value="{{ $notification->subject }}" required/>
+					</div>
+				</div>
+				<div class="form-group row">
 					<label for="content" class="col-sm-2 col-form-label">Content</label>
 					<div class="col-sm-10">
 						<textarea id="content" name="content" class="form-control" type="text" required>{{ $notification->content }}</textarea>

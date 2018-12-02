@@ -14,6 +14,7 @@
 						<th class="align-middle">No</th>
 						<th class="align-middle">Event</th>
 						<th class="align-middle">Type</th>
+						<th class="align-middle">Subject</th>
 						<th class="align-middle">Content</th>
 						<!-- <th class="align-middle">Location</th> -->
 						<!-- <th class="align-middle">Image</th> -->
@@ -52,6 +53,7 @@
 							@break
 							@endswitch
 						</td>
+						<td>{{ $notification->subject }}</td>
 						<td>{{ substr($notification->content, 0, 50) }}{{ strlen($notification->content) > 100 ? '....' : '' }}</td>
 						<td>{{ $notification->publication_date }}</td>
 						<td>{{ $notification->publication_time }}</td>

@@ -33,7 +33,7 @@ class RegistrationEmail extends Mailable
     public function build()
     {
         return $this->from(env('MAIL_FROM_ADDRESS', 'admin@intipesan.com'))
-                // ->subject('Reminder')
+                ->subject($this->data->subject)
                 ->view('mail.registration')
                 ->with('data', $this->data)
                 ->with('path', $this->path)

@@ -52,7 +52,7 @@
 					<div class="col-sm-10">
 						<select id="payment_method" class="form-control" name="payment_method">
 							<option value="1" selected>Transfer</option>
-							<!-- <option value="2">Cash</option> -->
+							<option value="2">Cash</option>
 						</select>
 					</div>
 				</div>

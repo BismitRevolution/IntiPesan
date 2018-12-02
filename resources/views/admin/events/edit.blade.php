@@ -48,12 +48,12 @@
 						<input id="location" name="location" class="form-control" type="text" value="{{ $event->location }}" required/>
 					</div>
 				</div>
-				<div class="form-group row">
+				<!-- <div class="form-group row">
 					<label for="img_path" class="col-sm-2 col-form-label">Display Image</label>
 					<div class="col-sm-10">
 						<input id="img_path" name="img_path[]" class="form-control-file" type="file" multiple="multiple"/>
 					</div>
-				</div>
+				</div> -->
 				<div class="form-group row">
 					<label for="start_date" class="col-sm-2 col-form-label">Event Start</label>
 					<div class="col-sm-5">

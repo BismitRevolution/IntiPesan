@@ -187,7 +187,9 @@ class RegistrantController extends Controller
     */
     public function destroy($id)
     {
-        $registrant = DB::table('registrant_datas')->where('registrant_id', $id);
+        // $registrant = DB::table('registrant_datas')->where('registrant_id', $id);
+        $registrant = RegistrantData::find($id);
+        app(EventController::class)->unregister($registrant->event_id);
         $registrant->delete();
 
         return redirect()->route('admin.registrants.index');

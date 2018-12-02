@@ -184,8 +184,10 @@ class NotificationController extends Controller
                             ->where('notifications.type', '=', -1)
                             ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
                             ->first();
-        app(MailController::class)->register($data, $username, $password);
-        $this->log($data);
+        if ($data != null) {
+            app(MailController::class)->register($data, $username, $password);
+            $this->log($data);
+        }
     }
 
     public function log($data) {

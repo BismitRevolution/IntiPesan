@@ -54,6 +54,7 @@ class NotificationController extends Controller
     {
         $request->validate([
             'type' => 'required',
+            'subject' => 'required',
             'content' => 'required',
             // 'location' => 'required',
             // 'publication_date' => 'required',
@@ -66,7 +67,7 @@ class NotificationController extends Controller
 
        $event = Event::find($request->event_id);
        $date = Carbon::createFromFormat('Y-m-d', $event->start_date);
-
+       $notification->subject = $request->subject;
        $notification->content = $request->content;
        // $notification->location = $request->location;
        $notification->event_id = $request->event_id;
@@ -145,7 +146,7 @@ class NotificationController extends Controller
 
         $event = Event::find($request->event_id);
         $date = Carbon::createFromFormat('Y-m-d', $event->start_date);
-
+        $notification->subject = $request->subject;
         $notification->content = $request->content;
         // $notification->location = $request->location;
         $notification->event_id = $request->event_id;

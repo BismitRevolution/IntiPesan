@@ -178,6 +178,12 @@ class EventController extends Controller
         $event->save();
     }
 
+    public function unregister($id) {
+        $event = Event::find($id);
+        $event->registered = $event->registered - 1;
+        $event->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

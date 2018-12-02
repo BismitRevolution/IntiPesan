@@ -12,5 +12,8 @@
         <div class="">
             @yield('map')
         </div>
+        <div class="">
+            @yield('credential')
+        </div>
     </body>
 </html>

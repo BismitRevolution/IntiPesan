@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::resource('/registrants', 'RegistrantController');
   Route::resource('/notifications', 'NotificationController');
   Route::resource('/articles', 'ArticleController');
+  Route::resource('/media', 'MediaController');
 });
 
 Route::group(['prefix' => 'registrant'], function () {

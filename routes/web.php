@@ -17,6 +17,7 @@
 
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/test', 'PageController@test')->name('test');
+Route::get('/verify/{id}', 'PageController@verify')->name('verify');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
@@ -32,6 +33,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
   Route::resource('/events', 'EventController');
+  Route::get('/events/reset/{id}', 'EventController@resetVerification');
   Route::resource('/registrants', 'RegistrantController');
   Route::resource('/notifications', 'NotificationController');
   Route::resource('/articles', 'ArticleController');

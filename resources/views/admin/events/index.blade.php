@@ -32,7 +32,9 @@
 					@foreach($events as $event)
 					<tr>
 						<td>{{ $counter++ }}</td>
-						<td>{{ $event->title }}</td>
+						<td>
+							<a href="{{ route('admin.events.show', ['id' => $event->event_id]) }}">{{ $event->title }}</a>
+						</td>
 						<td>
 							@switch($event->category)
 							@case(1)

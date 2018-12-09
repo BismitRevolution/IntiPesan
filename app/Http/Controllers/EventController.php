@@ -104,15 +104,48 @@ class EventController extends Controller
     {
         $event = DB::table('events')
                     ->where('events.event_id', '=', $id)
-                    ->where('events.category', '=', 'event')
                     ->first();
 
-        $media = DB::table('media')
-                    ->where('media.event_id', '=', $event->event_id)
-                    ->get();
+        $unverifieds = DB::table('registrant_datas')
+                            ->where('registrant_datas.event_id', '=', $id)
+                            ->where('registrant_datas.status', '=', 0)
+                            // ->orderBy('status', 'desc')
+                            ->get();
+
+        $verifieds = DB::table('verifications')
+                            ->join('registrant_datas', 'registrant_datas.registration_code', '=', 'verifications.registration_code')
+                            ->where('registrant_datas.event_id', '=', $id)
+                            ->where('verifications.date', '=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))
+                            ->get();
+
+        // $media = DB::table('media')
+        //             ->where('media.event_id', '=', $event->event_id)
+        //             ->get();
 
         return view('admin.events.show')
-                    ->with(['event' => $event, 'media' => $media]);
+                    ->with(['event' => $event, 'unverifieds' => $unverifieds, 'verifieds' => $verifieds]);
+    }
+
+    public function resetVerification($id) {
+        $event = Event::find($id);
+
+        if ($event == null) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Event not found',
+                'payload' => sprintf('Reset verification failed for event id %s', $id),
+            ]);
+        }
+
+        $registrants = DB::table('registrant_datas')
+                            ->where('registrant_datas.event_id', '=', $id)
+                            ->update(['registrant_datas.status' => 0]);
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'OK',
+            'payload' => sprintf('Reset verification success for event id %s', $id),
+        ]);
     }
 
     /**

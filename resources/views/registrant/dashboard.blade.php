@@ -2,7 +2,7 @@
 
 @section('sidebar')
 <li id="nav-event" class="nav-item">
-    <a class="nav-link" href="{{ route('admin.events.index') }}">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-calendar"></i>
         <span>Events</span>
     </a>

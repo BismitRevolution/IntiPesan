@@ -25,7 +25,7 @@
                 </div>
                 <div class="mr-5">Register Event</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.articles.create') }}">
+            <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">REGISTER</span>
                 <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -41,7 +41,7 @@
 				</div>
 				<div class="mr-5">View events</div>
 			</div>
-			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.articles.index') }}">
+			<a class="card-footer text-white clearfix small z-1" href="#">
 				<span class="float-left">VIEW</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>

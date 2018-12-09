@@ -39,7 +39,7 @@ class PageController extends Controller
             return response()->json([
                 'status' => 201,
                 'message' => 'OK',
-                'payload' => sprintf('User already verified for id %s', $id),
+                'payload' => $registrant,
             ]);
         }
 
@@ -56,7 +56,7 @@ class PageController extends Controller
         return response()->json([
             'status' => 200,
             'message' => 'OK',
-            'payload' => sprintf('Verify success for id %s', $id),
+            'payload' => $registrant,
         ]);
     }
 

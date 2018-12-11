@@ -15,7 +15,7 @@
                 <form class="login-form" role="form" method="POST" action="{{ url('/registrant/login') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <input id="email" class="form-control login-field" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
+                        <input id="email" class="form-control login-field" type="text" name="email" value="{{ old('email') }}" placeholder="Username">
                         @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>

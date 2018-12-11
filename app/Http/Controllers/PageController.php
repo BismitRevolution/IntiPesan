@@ -17,6 +17,10 @@ class PageController extends Controller
         return view('index');
     }
 
+    public function home() {
+        return view('registrant.pages.hrexpo');
+    }
+
     public function verify(Request $request, $id) {
         $registrant = DB::table('registrant_datas')
                             ->where('registrant_datas.registration_code', '=', $id)

@@ -25,7 +25,7 @@
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li id="nav-dashboard" class="nav-item active">
-                <a class="nav-link" href="{{ route('registrant.home') }}">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>

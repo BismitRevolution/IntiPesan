@@ -41,7 +41,7 @@
 				</div>
 				<div class="mr-5">Manage Registrants</div>
 			</div>
-			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.index') }}">
+			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.registrants.index') }}">
 				<span class="float-left">MANAGE</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>

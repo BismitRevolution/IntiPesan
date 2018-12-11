@@ -16,6 +16,7 @@
 // });
 
 Route::get('/', 'PageController@index')->name('index');
+Route::get('/home', 'PageController@home')->name('home');
 Route::get('/test', 'PageController@test')->name('test');
 Route::get('/verify/{id}', 'PageController@verify')->name('verify');
 

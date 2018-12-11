@@ -64,6 +64,16 @@ class PageController extends Controller
         ]);
     }
 
+    public function notify() {
+        app(NotificationController::class)->notify();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'OK',
+            'payload' => null,
+        ]);
+    }
+
     public function test() {
         // $data = DB::table('notifications')
         //                     ->where('notifications.publication_date', '=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))

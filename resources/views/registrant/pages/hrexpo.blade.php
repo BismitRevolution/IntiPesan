@@ -28,13 +28,6 @@
 	</div>
 	<div id="feedback-button" class="card-body row">
         <div class="col-12">
-            <h5 class=""><small>TESTING</small></h5>
-        </div>
-        <div class="col">
-            <a class="btn col-12 bg-green white" href="https://bit.ly/HRE_testing_feedback" target="_blank">TESTING</a>
-        </div>
-
-        <div class="col-12">
             <h5 class=""><small>PLENO</small></h5>
         </div>
         <div class="col">

@@ -62,7 +62,8 @@ class RegistrantController extends Controller
         ]);
 
         $event = Event::find($request->event_id);
-        $username = sprintf("%s%'04d", $event->event_code, $event->registered + 1);
+        $username = sprintf("%s%'04d", $event->event_code, $event->counter + 1);
+        $token = $username . Carbon::now('Asia/Jakarta')->format('Y-m-dH:i:s');
         $password = str_random(8);
         // dd($password);
 
@@ -79,6 +80,7 @@ class RegistrantController extends Controller
 
         $registrant = new RegistrantData;
         $registrant->registration_code = $username;
+        $registrant->registration_token = $token;
         $registrant->name = $request->name;
         $registrant->email = $request->email;
         $registrant->position = $request->position;
@@ -88,8 +90,8 @@ class RegistrantController extends Controller
         $registrant->payment_method = $request->payment_method;
         // $registrant->status = $request->status;
         // $registrant->certificate = $request->certificate;
-        $qrcode = new QrCode($username);
-        $qrcode->setSize(300);
+        $qrcode = new QrCode($token);
+        $qrcode->setSize(200);
         $hash_name = str_random(24);
         $path = sprintf('%s/%s%s', public_path('img/qrcodes'), $hash_name, '.png');
         $web_path = sprintf('%s/%s/%s%s', env('APP_URL', 'localhost:8000'), 'img/qrcodes', $hash_name, '.png');

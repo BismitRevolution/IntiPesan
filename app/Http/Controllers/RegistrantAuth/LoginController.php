@@ -49,8 +49,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return redirect()->route('home');
-        // return view('registrant.auth.login');
+        // return redirect()->route('home');
+        return view('registrant.auth.login');
     }
 
     /**

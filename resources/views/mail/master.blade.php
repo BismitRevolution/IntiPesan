@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class="bg-green white text-justify">
-            <div class="container-app content">
+            <div class="container content">
                 @yield('content')
                 @include('mail._footer')
             </div>

@@ -1,71 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" style="box-sizing: border-box;font-family: sans-serif;line-height: 1.15;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-ms-overflow-style: scrollbar;-webkit-tap-highlight-color: transparent;outline: none !important;">
-    <head style="box-sizing: border-box;outline: none !important;">
-        <meta charset="utf-8" style="box-sizing: border-box;outline: none !important;">
-        <title style="box-sizing: border-box;outline: none !important;">Registration Email</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" style="box-sizing: border-box;outline: none !important;">
-        <meta name="description" content="Description of the page" style="box-sizing: border-box;outline: none !important;">
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Registration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" content="Description of the page">
     </head>
-    <body style="box-sizing: border-box;margin: 0;font-family: &quot;Lato&quot;,Helvetica,Arial,sans-serif;font-size: 16px;font-weight: 400;line-height: 1.6;color: #34495e;text-align: left;background-color: white;outline: none !important;min-width: 992px!important;">
-        <div class="bg-green white text-justify" style="box-sizing: border-box;outline: none !important;text-align: justify!important;background-color: #1abc9c !important;color: white !important;">
-            <div class="container-app content" style="box-sizing: border-box;margin-left: 20vw;margin-right: 20vw;padding-top: 35px;padding-bottom: 35px;outline: none !important;">                <div class="row" style="margin-top: 35px;box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                    <p class="col-12" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;">{{ $data->content }}</p>
-                </div>
-                <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                    <div class="col-12 col-md-6" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <h5 class="col-12" style="box-sizing: border-box;margin-top: 15px;margin-bottom: 15px;font-family: &quot;Roboto-Bold&quot;;font-weight: 700;line-height: 1.1;color: inherit;font-size: 28px;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;"><small style="box-sizing: border-box;font-size: 83%;font-weight: 400;line-height: 2.067;color: #e7e9ec;outline: none !important;">Registrant Data</small></h5>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">Name : </p>
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;"><b style="box-sizing: border-box;font-weight: bolder;outline: none !important;">{{ $data->name }}</b></p>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">Company : </p>
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;"><b style="box-sizing: border-box;font-weight: bolder;outline: none !important;">{{ $data->company }}</b></p>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">Event : </p>
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;"><b style="box-sizing: border-box;font-weight: bolder;outline: none !important;">{{ $data->title }}</b></p>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <h5 class="col-12" style="box-sizing: border-box;margin-top: 15px;margin-bottom: 15px;font-family: &quot;Roboto-Bold&quot;;font-weight: 700;line-height: 1.1;color: inherit;font-size: 28px;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;"><small style="box-sizing: border-box;font-size: 83%;font-weight: 400;line-height: 2.067;color: #e7e9ec;outline: none !important;">Login Account</small></h5>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">Username : </p>
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;"><b style="box-sizing: border-box;font-weight: bolder;outline: none !important;">{{ $username }}</b></p>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">Password : </p>
-                            <p class="col-xs-6 col-sm-6" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;"><b style="box-sizing: border-box;font-weight: bolder;outline: none !important;">{{ $password }}</b></p>
-                        </div>
-                        <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                            <div class="col-12 text-center" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;text-align: center!important;">
-                                <a class="btn btn-inverse btn-large" href="{{ route('registrant.login') }}" style="box-sizing: border-box;color: #fff;text-decoration: none;background-color: #34495e;-webkit-text-decoration-skip: objects;transition: border .25s linear, color .25s linear, background-color .25s linear;display: inline-block;font-weight: normal;text-align: center;white-space: nowrap;vertical-align: middle;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;border: none;padding: 10px 15px;font-size: 15px;line-height: 1.4;border-radius: 4px;-webkit-font-smoothing: subpixel-antialiased;padding-left: 35px;padding-right: 35px;margin-top: 15px;margin-bottom: 35px;outline: none !important;">LOGIN</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">
-                        <img class="float-right qrcode" src="{{ $path }}" alt="qr_code" style="box-sizing: border-box;vertical-align: middle;border-style: none;max-width: 290px;page-break-inside: avoid;max-height: 290px;outline: none !important;float: right!important;">
-                    </div>
-                </div>
-                <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                    <h5 class="col-12" style="box-sizing: border-box;margin-top: 15px;margin-bottom: 15px;font-family: &quot;Roboto-Bold&quot;;font-weight: 700;line-height: 1.1;color: inherit;font-size: 28px;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;"><small style="box-sizing: border-box;font-size: 83%;font-weight: 400;line-height: 2.067;color: #e7e9ec;outline: none !important;">Lokasi Kegiatan</small></h5>
-                    <p class="col-12" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 100%;flex: 0 0 100%;max-width: 100%;outline: none !important;">{{ $data->location }}</p>
-                </div>
-                <h5 style="box-sizing: border-box;margin-top: 15px;margin-bottom: 15px;font-family: &quot;Roboto-Bold&quot;;font-weight: 700;line-height: 1.1;color: inherit;font-size: 28px;outline: none !important;"><small style="box-sizing: border-box;font-size: 83%;font-weight: 400;line-height: 2.067;color: #e7e9ec;outline: none !important;">Kontak Kami</small></h5>
-                <div class="row" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: 0px;margin-left: 0px;outline: none !important;">
-                    <div class="col-md-6 col-12" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">
-                        <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;outline: none !important;">Telp. (021) 781 5858 (hunting)</p>
-                        <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;outline: none !important;">Telp. (021) 781 9844</p>
-                        <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;outline: none !important;">Fax. (021) 7883 8781</p>
-                        <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;outline: none !important;">Email : info@intipesan.co.id</p>
-                    </div>
-                    <div class="col-md-6 col-12" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;outline: none !important;">
-                        <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;font-size: 18px;line-height: 1.72222;margin: 0 0 15px;orphans: 3;widows: 3;font-family: &quot;Aller-Regular&quot;;outline: none !important;">Jl. Baung IV No. 36A, Kebagusan, Pasar Minggu, Jakarta Selatan 12520</p>
-                    </div>
-                </div>
-            </div>
+    <body style="background-color: #1abc9c; color: white; font-family: Arial; margin: 35px 25px;">
+        <p style="text-align: justify;">{{ $data->content }}</p>
+        <div style="text-align: center;">
+            <img src="{{ $path }}" alt="qr_code">
+        </div>
+        <div style="margin-top: 65px;">
+            <h2>Registrant Data</h2>
+            <p>Name :<span><b>{{ $data->name }}</b></span></p>
+            <p>Company : <span><b>{{ $data->company }}</b></span></p>
+            <p>Event : <span><b>{{ $data->title }}</b></span></p>
+        </div>
+        <div style="margin-top: 35px;">
+            <h2>Login Account</h2>
+            <p>Username : <span><b>{{ $username }}</b></span></p>
+            <p>Password : <span><b>{{ $password }}</b></span></p>
+            <form role="form" method="POST" action="{{ url('/registrant/login') }}">
+                {{ csrf_field() }}
+                <input id="email" type="text" name="email" value="{{ $username }}" hidden>
+                <input id="password" type="password" name="password" value="{{ $password }}" hidden>
+                <button type="submit" style="padding: 8px 15px; background-color: #1abc9c; color: white; border: 3px solid white; border-radius: 3px; font-weight: bold;">LOGIN</button>
+            </form>
+        </div>
+        <div style="margin-top: 35px;">
+            <h2>Lokasi Kegiatan</h2>
+            <p>{{ $data->location }}</p>
+        </div>
+        <div style="margin-top: 35px; width: 100%; height: 2px; background-color: white;"></div>
+        <div style="margin-top: 35px;">
+            <h2>Kontak Kami</h2>
+            <p>Telp. (021) 781 5858 (hunting)</p>
+            <p>Telp. (021) 781 9844</p>
+            <p>Fax. (021) 7883 8781</p>
+            <p>Email : info@intipesan.co.id</p>
+            <p>Jl. Baung IV No. 36A, Kebagusan, Pasar Minggu, Jakarta Selatan 12520</p>
         </div>
     </body>
 </html>

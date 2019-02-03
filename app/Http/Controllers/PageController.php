@@ -23,7 +23,7 @@ class PageController extends Controller
 
     public function verify(Request $request, $id) {
         $registrant = DB::table('registrant_datas')
-                            ->where('registrant_datas.registration_code', '=', $id)
+                            ->where('registrant_datas.registration_token', '=', $id)
                             ->first();
 
         if ($registrant == null) {
@@ -48,7 +48,7 @@ class PageController extends Controller
         }
 
         $registrant = DB::table('registrant_datas')
-                            ->where('registrant_datas.registration_code', '=', $id)
+                            ->where('registrant_datas.registration_token', '=', $id)
                             ->update(['registrant_datas.status' => 1]);
 
         $verification = new Verification;
@@ -89,28 +89,30 @@ class PageController extends Controller
         // $path = sprintf('%s/%s%s', public_path('img/qrcodes'), str_random(24), '.png');
         // $qrcode->writeFile($path);
 
+        $data = DB::table('registrant_datas')
+                            ->where('registrant_datas.registrant_id', '=', 1)
+                            ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
+                            ->where('notifications.type', '=', 1)
+                            ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
+                            ->first();
+        return view('mail.registration-inline')->with([
+        // return view('mail.notification')->with([
+            'data' => $data,
+            'path' => 'http://localhost:8000/img/qrcodes/o81XaFCJKrPb52ePRIgkahL6.png',
+            'username' => $data->registration_code,
+            'password' => 'KHG8syZu',
+            // 'username' => 'admin@bismitrevolution.com',
+            // 'password' => 'admin'
+        ]);
         // $data = DB::table('registrant_datas')
-        //                     ->where('registrant_datas.registrant_id', '=', 1)
+        //                     ->where('registrant_datas.registrant_id', '=', $id)
         //                     ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
         //                     ->where('notifications.type', '=', -1)
         //                     ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
         //                     ->first();
-        // return view('mail.notification-inline')->with([
-        // // return view('mail.notification')->with([
-        //     'data' => $data,
-        //     'path' => 'http://localhost:8000/img/qrcodes/KHG8syZuo6AeD8oWMchSda8z.png',
-        //     'username' => 'HRE0001',
-        //     'password' => 'KHG8syZu',
-        // ]);
-        $data = DB::table('registrant_datas')
-                            ->where('registrant_datas.registrant_id', '=', $id)
-                            ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
-                            ->where('notifications.type', '=', -1)
-                            ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
-                            ->first();
-        if ($data != null) {
-            app(MailController::class)->register($data, $path, $username, $password);
-            $this->log($data);
-        }
+        // if ($data != null) {
+        //     app(MailController::class)->register($data, $path, $username, $password);
+        //     $this->log($data);
+        // }
     }
 }

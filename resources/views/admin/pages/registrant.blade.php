@@ -2,6 +2,7 @@
 
 @section('extra-js')
 <script type="text/javascript" src="{{ asset('js/admin/registrant.js') }}"></script>
+@yield('more-js')
 @endsection
 
 @section('breadcrumb')

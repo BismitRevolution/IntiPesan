@@ -17,16 +17,29 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = DB::table('events')
+        $upcoming = DB::table('events')
                     // ->where('events.category', '=', 'event')
+                    ->where('events.end_date', '>=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))
+                    ->orderBy('events.end_date', 'desc')
                     ->get();
-
-        foreach($events as $event){
+        foreach($upcoming as $event){
             $event->media = DB::table('media')
                                 ->where('media.event_id', '=', $event->event_id)
                                 ->get();
         }
-        return view('admin.events.index')->with(['events'=> $events]);
+
+        $history = DB::table('events')
+                    // ->where('events.category', '=', 'event')
+                    ->where('events.end_date', '<', Carbon::now('Asia/Jakarta')->format('Y-m-d'))
+                    ->orderBy('events.end_date', 'desc')
+                    ->get();
+        foreach($history as $event){
+            $event->media = DB::table('media')
+                                ->where('media.event_id', '=', $event->event_id)
+                                ->get();
+        }
+
+        return view('admin.events.index')->with(['upcoming_events' => $upcoming, 'history_events' => $history]);
     }
 
     /**
@@ -60,7 +73,7 @@ class EventController extends Controller
         ]);
 
        $event = new Event;
-       $event->event_code = substr(str_replace(' ', '', strtoupper($request->title)), 0, 3);
+       $event->event_code = substr(str_replace(' ', '', strtoupper($request->title)), 0, 3) . Carbon::now('Asia/Jakarta')->format('mY');
        $event->title = $request->title;
        $event->category = $request->category;
        $event->description = $request->description;
@@ -208,6 +221,7 @@ class EventController extends Controller
     public function register($id) {
         $event = Event::find($id);
         $event->registered = $event->registered + 1;
+        $event->counter = $event->counter + 1;
         $event->save();
     }
 

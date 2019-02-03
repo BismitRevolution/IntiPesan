@@ -16,6 +16,8 @@
     <link href="{{ asset('css/vendor/sb-admin.min.css') }}" rel="stylesheet">
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="{{ asset('css/pages/dashboard.css') }}">
     @yield('extra-css')
 </head>
 

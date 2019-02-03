@@ -1,5 +1,17 @@
 @extends('admin.pages.event')
 
+@section('more-js')
+<script type="text/javascript" src="{{ asset('js/admin/search.js') }}"></script>
+<script type="text/javascript">
+	$("#verified-search").keyup(function() {
+		search("verified-search", "verified-table", 2);
+	});
+	$("#unverified-search").keyup(function() {
+		search("unverified-search", "unverified-table", 2);
+	});
+</script>
+@endsection
+
 @section('extra-actions')
 <div class="col-xl-3 col-sm-6 mb-3">
 	<div class="card text-white bg-success o-hidden h-100">
@@ -109,12 +121,22 @@
 		Verified Participants (TODAY)
 	</div>
 	<div class="card-body">
+
+		<div class="input-group mb-3">
+			<input id="verified-search" type="text" class="form-control" placeholder="Search keyword">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+		</div>
+
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered" id="verified-table" width="100%" cellspacing="0">
 				<thead>
 					<tr>
 						<th class="align-middle">No</th>
-						<th class="align-middle">Registration Code</th>
+						<th class="align-middle cell-max">Registration Code</th>
 						<th class="align-middle">Name</th>
 						<th class="align-middle">Position</th>
 						<th class="align-middle">Company</th>
@@ -126,13 +148,13 @@
 				<tbody>
 					@foreach($verifieds as $verified)
 					<tr>
-						<td>{{ $counter++ }}</td>
-						<td>{{ $verified->registration_code }}</td>
-						<td>{{ $verified->name }}</td>
-						<td>{{ $verified->position }}</td>
-						<td>{{ $verified->company }}</td>
-						<td>{{ $verified->phone }}</td>
-						<td>Verified</td>
+						<td class="text-center">{{ $counter++ }}</td>
+						<td class="cell-max">{{ $verified->registration_code }}</td>
+						<td class="cell-md">{{ $verified->name }}</td>
+						<td class="cell-max">{{ $verified->position }}</td>
+						<td class="cell-md">{{ $verified->company }}</td>
+						<td class="cell-max">{{ $verified->phone }}</td>
+						<td class="cell-max">Verified</td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -148,12 +170,22 @@
 		Unverified Participants (TODAY)
 	</div>
 	<div class="card-body">
+
+		<div class="input-group mb-3">
+			<input id="unverified-search" type="text" class="form-control" placeholder="Search keyword">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+		</div>
+
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered" id="unverified-table" width="100%" cellspacing="0">
 				<thead>
 					<tr>
 						<th class="align-middle">No</th>
-						<th class="align-middle">Registration Code</th>
+						<th class="align-middle cell-max">Registration Code</th>
 						<th class="align-middle">Name</th>
 						<th class="align-middle">Position</th>
 						<th class="align-middle">Company</th>
@@ -165,13 +197,13 @@
 				<tbody>
 					@foreach($unverifieds as $unverified)
 					<tr>
-						<td>{{ $counter++ }}</td>
-						<td>{{ $unverified->registration_code }}</td>
-						<td>{{ $unverified->name }}</td>
-						<td>{{ $unverified->position }}</td>
-						<td>{{ $unverified->company }}</td>
-						<td>{{ $unverified->phone }}</td>
-						<td>
+						<td class="text-center">{{ $counter++ }}</td>
+						<td class="cell-max">{{ $unverified->registration_code }}</td>
+						<td class="cell-md">{{ $unverified->name }}</td>
+						<td class="cell-max">{{ $unverified->position }}</td>
+						<td class="cell-md">{{ $unverified->company }}</td>
+						<td class="cell-max">{{ $unverified->phone }}</td>
+						<td class="cell-max">
 							@switch($unverified->status)
 							@case(0)
 								Unverified

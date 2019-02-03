@@ -1,0 +1,10 @@
+#home .btn {
+    border: 1px solid white;
+    border-radius: 0px;
+    color: white;
+}
+
+#home .btn:hover {
+    background-color: white;
+    color: var(--color-green);
+}

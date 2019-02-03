@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFormColumn extends Migration
+class AddEventCounter extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFormColumn extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('form_url')->default(null);
+            $table->integer('counter')->unsigned()->default(0);
         });
     }
 

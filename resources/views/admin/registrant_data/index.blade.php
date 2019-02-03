@@ -1,5 +1,14 @@
 @extends('admin.pages.registrant')
 
+@section('more-js')
+<script type="text/javascript" src="{{ asset('js/admin/search.js') }}"></script>
+<script type="text/javascript">
+	$("#registrant-search").keyup(function() {
+		search("registrant-search", "registrant-table", 1);
+	});
+</script>
+@endsection
+
 @section('dashboard-content')
 <div class="card mb-3">
 	<div class="card-header">
@@ -7,16 +16,26 @@
 		List of Registrants
 	</div>
 	<div class="card-body">
+
+		<div class="input-group mb-3">
+			<input id="registrant-search" type="text" class="form-control" placeholder="Search keyword">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+		</div>
+
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered" id="registrant-table" width="100%" cellspacing="0">
 				<thead>
 					<tr>
 						<th class="align-middle">No</th>
 						<th class="align-middle">Name</th>
 						<th class="align-middle">Email</th>
-						<th class="align-middle">Position</th>
 						<th class="align-middle">Phone</th>
 						<th class="align-middle">Company</th>
+						<th class="align-middle">Position</th>
 						<th class="align-middle">Company Address</th>
 						<th class="align-middle">Payment Method</th>
 						<th class="align-middle">Status</th>
@@ -31,13 +50,13 @@
 				<tbody>
 					@foreach($registrants as $registrant)
 					<tr>
-						<td>{{ $counter++ }}</td>
-						<td>{{ $registrant->name }}</td>
-						<td>{{ $registrant->email }}</td>
-						<td>{{ $registrant->position }}</td>
-						<td>{{ $registrant->phone }}</td>
-						<td>{{ $registrant->company }}</td>
-						<td>{{ substr($registrant->company_address, 0, 50) }}{{ strlen($registrant->company_address) > 100 ? '....' : '' }}</td>
+						<td class="text-center">{{ $counter++ }}</td>
+						<td class="cell-md">{{ $registrant->name }}</td>
+						<td class="cell-max">{{ $registrant->email }}</td>
+						<td class="cell-max">{{ $registrant->phone }}</td>
+						<td class="cell-max">{{ $registrant->company }}</td>
+						<td class="cell-max">{{ $registrant->position }}</td>
+						<td class="cell-max">{{ substr($registrant->company_address, 0, 50) }}{{ strlen($registrant->company_address) > 100 ? '....' : '' }}</td>
 						<td>
 							@switch($registrant->payment_method)
 							@case(1)
@@ -68,20 +87,18 @@
 							@break
 							@endswitch
 						</td>
-						<td>{{ $registrant->event->title }}</td>
-						<td>{{ $registrant->created_at }}</td>
-						<td>{{ $registrant->updated_at }}</td>
-						<td>
-							<div class="form-inline">
-								<form action="{{ route('admin.registrants.edit', ['id' => $registrant->registrant_id]) }}" method="GET">
-									<button type="submit" class="btn btn-primary">Edit</button>
-								</form>
-								<form action="{{ route('admin.registrants.destroy', ['id' => $registrant->registrant_id]) }}" method="POST">
-									<input hidden type="hidden" name="_method" value="DELETE" />
-									<button type="submit" class="btn btn-danger">Delete</button>
-									{!! csrf_field() !!}
-								</form>
-							</div>
+						<td class="cell-max">{{ $registrant->event->title }}</td>
+						<td class="cell-max">{{ $registrant->created_at }}</td>
+						<td class="cell-max">{{ $registrant->updated_at }}</td>
+						<td class="cell-max">
+							<form class="" action="{{ route('admin.registrants.destroy', ['id' => $registrant->registrant_id]) }}" method="POST">
+								<input hidden type="hidden" name="_method" value="DELETE" />
+								{!! csrf_field() !!}
+								<div class="button-group" role="group">
+									<a href="{{ route('admin.registrants.edit', ['id' => $registrant->registrant_id]) }}" class="btn btn-primary">EDIT</a>
+									<button type="submit" class="btn btn-danger">DELETE</button>
+								</div>
+							</form>
 						</td>
 					</tr>
 					@endforeach

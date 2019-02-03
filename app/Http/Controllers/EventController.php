@@ -20,7 +20,7 @@ class EventController extends Controller
         $upcoming = DB::table('events')
                     // ->where('events.category', '=', 'event')
                     ->where('events.end_date', '>=', Carbon::now('Asia/Jakarta')->format('Y-m-d'))
-                    ->orderBy('events.end_date', 'desc')
+                    ->orderBy('events.start_date', 'asc')
                     ->get();
         foreach($upcoming as $event){
             $event->media = DB::table('media')

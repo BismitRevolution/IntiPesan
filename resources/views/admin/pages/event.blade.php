@@ -40,7 +40,7 @@
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-list"></i>
 				</div>
-				<div class="mr-5">View event</div>
+				<div class="mr-5">View all events</div>
 			</div>
 			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.index') }}">
 				<span class="float-left">VIEW</span>

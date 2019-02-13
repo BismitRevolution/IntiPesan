@@ -75,12 +75,12 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="{{ url('/admin/logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
+                    <a class="btn bg-green white" href="{{ url('/admin/logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
 
                 <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}

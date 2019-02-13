@@ -2,6 +2,7 @@
 
 @section('extra-js')
 <script type="text/javascript" src="{{ asset('js/admin/event.js') }}"></script>
+@yield('more-js')
 @endsection
 
 @section('breadcrumb')
@@ -10,7 +11,10 @@
     <li class="breadcrumb-item">
         <a href="#">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Overview</li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.events.show', $event_id) }}">Event #{{ $event_id }}</a>
+    </li>
+    <li class="breadcrumb-item active">Track</li>
 </ol>
 @endsection
 
@@ -23,10 +27,10 @@
                 <div class="card-body-icon">
                     <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">Create new event</div>
+                <div class="mr-5">Add new track</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.create') }}">
-                <span class="float-left">CREATE</span>
+            <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.tracks.add', $event_id) }}">
+                <span class="float-left">ADD</span>
                 <span class="float-right">
                     <i class="fas fa-angle-right"></i>
                 </span>
@@ -39,9 +43,9 @@
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-list"></i>
 				</div>
-				<div class="mr-5">View event</div>
+				<div class="mr-5">View tracks</div>
 			</div>
-			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.index') }}">
+			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.tracks.show', $event_id) }}">
 				<span class="float-left">VIEW</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -49,6 +53,7 @@
 			</a>
 		</div>
 	</div>
+    @yield('extra-actions')
     <!-- <div class="col-xl-3 col-sm-6 mb-3">
         <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">

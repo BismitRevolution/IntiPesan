@@ -1,7 +1,7 @@
 @extends('registrant.dashboard')
 
 @section('extra-js')
-<!-- <script type="text/javascript" src="{{ asset('js/registrant.js') }}"></script> -->
+<script type="text/javascript" src="{{ asset('js/admin/feedback.js') }}"></script>
 @endsection
 
 @section('breadcrumb')
@@ -23,41 +23,25 @@
                 <div class="card-body-icon">
                     <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">Register to Event</div>
+                <div class="mr-5">Create new event</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">REGISTER</span>
-                <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                </span>
-            </a>
-        </div>
-    </div> -->
-    <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-                <div class="card-body-icon">
-                    <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5">Feedback Forms</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="{{ route('registrant.feedbacks.index') }}">
-                <span class="float-left">REVIEW</span>
+            <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.create') }}">
+                <span class="float-left">CREATE</span>
                 <span class="float-right">
                     <i class="fas fa-angle-right"></i>
                 </span>
             </a>
         </div>
     </div>
-    <!-- <div class="col-xl-3 col-sm-6 mb-3">
+    <div class="col-xl-3 col-sm-6 mb-3">
 		<div class="card text-white bg-warning o-hidden h-100">
 			<div class="card-body">
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-list"></i>
 				</div>
-				<div class="mr-5">View events</div>
+				<div class="mr-5">View event</div>
 			</div>
-			<a class="card-footer text-white clearfix small z-1" href="#">
+			<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.events.index') }}">
 				<span class="float-left">VIEW</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -75,6 +59,22 @@
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">ARCHIVED</span>
+                <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+    </div> -->
+    <!-- <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fas fa-fw fa-life-ring"></i>
+                </div>
+                <div class="mr-5">Delete Article</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">DELETE</span>
                 <span class="float-right">
                     <i class="fas fa-angle-right"></i>
                 </span>

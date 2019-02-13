@@ -8,5 +8,5 @@ Route::get('/home', function () {
     //dd($users);
 
     return view('registrant.home');
+    // return redirect()->route('registrant.feedbacks.index');
 })->name('home');
-

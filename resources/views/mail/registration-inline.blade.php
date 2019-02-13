@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="description" content="Description of the page">
     </head>
-    <body style="background-color: #1abc9c; color: white; font-family: Arial; margin: 35px 25px;">
+    <body style="background-color: white; color: #1abc9c; font-family: Arial; margin: 35px 25px;">
         <p style="text-align: justify;">{{ $data->content }}</p>
         <div style="text-align: center;">
             <img src="{{ $path }}" alt="qr_code">

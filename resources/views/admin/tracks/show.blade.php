@@ -21,8 +21,7 @@
 			</div>
 			<div class="mr-5">Feedback Forms</div>
 		</div>
-		<!-- <a class="card-footer text-white clearfix small z-1" href="{{ $event->form_url }}" target="_blank"> -->
-		<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.feedbacks.view', ['id' => $event->event_id]) }}">
+		<a class="card-footer text-white clearfix small z-1" href="{{ $event->form_url }}" target="_blank">
 			<span class="float-left">FEEDBACK</span>
 			<span class="float-right">
 				<i class="fas fa-angle-right"></i>
@@ -38,7 +37,7 @@
 			</div>
 			<div class="mr-5">Manage Tracks</div>
 		</div>
-		<a class="card-footer text-white clearfix small z-1" href="{{ route('admin.tracks.show', $event->event_id) }}">
+		<a class="card-footer text-white clearfix small z-1" href="{{ $event->form_url }}" target="_blank">
 			<span class="float-left">MANAGE</span>
 			<span class="float-right">
 				<i class="fas fa-angle-right"></i>

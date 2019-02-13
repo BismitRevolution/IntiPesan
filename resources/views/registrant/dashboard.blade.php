@@ -1,10 +1,10 @@
 @extends('registrant.layout.master')
 
 @section('sidebar')
-<li id="nav-event" class="nav-item">
-    <a class="nav-link" href="#">
-        <i class="fas fa-fw fa-calendar"></i>
-        <span>Events</span>
+<li id="nav-feedback" class="nav-item">
+    <a class="nav-link" href="{{ route('registrant.feedbacks.index') }}">
+        <i class="fas fa-fw fa-newspaper"></i>
+        <span>Feedbacks</span>
     </a>
 </li>
 <!-- <li id="nav-profile" class="nav-item">

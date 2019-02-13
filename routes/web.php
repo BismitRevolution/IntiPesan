@@ -38,6 +38,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::get('/events/reset/{id}', 'EventController@resetVerification');
   Route::resource('/registrants', 'RegistrantController');
   Route::resource('/notifications', 'NotificationController');
+  Route::resource('/questions', 'QuestionController');
+  Route::get('/tracks/add/{id}', 'TrackController@add')->name('tracks.add');
+  Route::resource('/tracks', 'TrackController');
+  Route::get('/feedbacks/{id}', 'FeedbackController@view')->name('feedbacks.view');
+  Route::resource('/feedbacks', 'FeedbackController');
+  Route::get('/speakers/change/{id}{event_id}', 'SpeakerController@change')->name('speakers.change');
+  Route::put('/speakers/save/{id}{event_id}', 'SpeakerController@save')->name('speakers.save');
+  Route::delete('/speakers/archive/{id}{event_id}', 'SpeakerController@archive')->name('speakers.archive');
+  Route::resource('/speakers', 'SpeakerController');
   Route::resource('/articles', 'ArticleController');
 });
 
@@ -53,4 +62,7 @@ Route::group(['prefix' => 'registrant', 'as' => 'registrant.'], function () {
   Route::post('/password/reset', 'RegistrantAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'RegistrantAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'RegistrantAuth\ResetPasswordController@showResetForm');
+
+  Route::get('/feedbacks/viewform/{id}', 'FeedbackController@track')->name('feedbacks.viewform');
+  Route::resource('/feedbacks', 'FeedbackController');
 });

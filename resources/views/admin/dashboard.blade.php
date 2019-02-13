@@ -13,18 +13,18 @@
         <span>Notification</span>
     </a>
 </li>
+<li id="nav-feedback" class="nav-item">
+    <a class="nav-link" href="{{ route('admin.questions.index') }}">
+        <i class="fas fa-fw fa-newspaper"></i>
+        <span>Question</span>
+    </a>
+</li>
 <li id="nav-registrant" class="nav-item">
     <a class="nav-link" href="{{ route('admin.registrants.index') }}">
         <i class="fas fa-fw fa-users"></i>
         <span>Registrant</span>
     </a>
 </li>
-<!-- <li id="nav-article" class="nav-item">
-    <a class="nav-link" href="{{ route('admin.articles.index') }}">
-        <i class="fas fa-fw fa-newspaper"></i>
-        <span>Artikel</span>
-    </a>
-</li> -->
 @endsection
 
 @section('counter-notification', 1)

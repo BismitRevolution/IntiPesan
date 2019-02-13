@@ -1,0 +1,26 @@
+.ct-label {
+    /* fill: var(--color-green); */
+    fill: black;
+    font-size: 14px;
+    /* font-weight: bold; */
+}
+
+.ct-series-a .ct-slice-pie {
+    fill: #FFBDDB;
+}
+
+.ct-series-b .ct-slice-pie {
+    fill: #FFCCE7;
+}
+
+.ct-series-c .ct-slice-pie {
+    fill: #F5DFFB;
+}
+
+.ct-series-d .ct-slice-pie {
+    fill: #D6F6FF;
+}
+
+.ct-series-e .ct-slice-pie {
+    fill: #B2DEFF;
+}

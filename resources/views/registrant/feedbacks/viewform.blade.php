@@ -22,13 +22,14 @@
                         @elseif ($question->answer_type == 2)
                         <textarea id="{{ $question->colname }}" name="session[{{ $question->colname }}]" class="form-control" type="text" required></textarea>
                         @else
-                        <select id="{{ $question->colname }}" class="form-control" name="session[{{ $question->colname }}]" type="number">
+						<input id="{{ $question->colname }}" type="range" class="custom-range" name="session[{{ $question->colname }}]" min="1" max="5" value="5">
+                        <!-- <select id="{{ $question->colname }}" class="form-control" name="session[{{ $question->colname }}]" type="number">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                        </select>
+                        </select> -->
                         @endif
                     </div>
                 </div>
@@ -48,13 +49,14 @@
                             @elseif ($question->answer_type == 2)
                             <textarea id="{{ $question->colname }}" name="speaker[{{ $question->colname }}][]" class="form-control" type="text" required></textarea>
                             @else
-                            <select id="{{ $question->colname }}" class="form-control" name="speaker[{{ $question->colname }}][]" type="number">
+							<input id="{{ $question->colname }}" type="range" class="custom-range" name="speaker[{{ $question->colname }}][]" min="1" max="5" value="5">
+                            <!-- <select id="{{ $question->colname }}" class="form-control" name="speaker[{{ $question->colname }}][]" type="number">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select>
+                            </select> -->
                             @endif
                         </div>
                     </div>

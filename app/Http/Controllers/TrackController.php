@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Track;
 use App\Speaker;
+use App\Attachment;
 use Carbon\Carbon;
 
 class TrackController extends Controller
@@ -74,16 +75,52 @@ class TrackController extends Controller
                     ->where('event_id', '=', $id)
                     ->orderBy('number', 'asc')
                     ->get();
-        foreach($tracks as $track){
+        foreach($tracks as $track) {
             $track->speakers = DB::table('speakers')
                                 ->where('speakers.archived', '=', false)
                                 ->where('speakers.track_id', '=', $track->track_id)
                                 ->get();
+
+            foreach($track->speakers as $speaker) {
+                $speaker->attachments = DB::table('attachments')
+                                            ->where('attachments.speaker_id', $speaker->speaker_id)
+                                            ->where('attachments.archived', false)
+                                            ->get();
+            }
         }
         return view('admin.tracks.index')->with([
             'event_id' => $id,
             'tracks' => $tracks
         ]);
+    }
+
+    public function upload(Request $request) {
+        // dd($request);
+        $files = $request->file('attachment');
+        // dd($files);
+        if($request->hasFile('attachment')) {
+            foreach ($files as $file) {
+                $path = $file->store(
+                    '/public/'.$request->speaker_id
+                );
+                $attachment = new Attachment;
+                $attachment->path = substr($path, 7);
+                $attachment->format = $request->format;
+                $attachment->filename = $request->filename;
+                $attachment->speaker_id = $request->speaker_id;
+                $attachment->save();
+                // dd($phpath);
+            }
+        }
+        return redirect()->route('admin.tracks.show', $request->event_id);
+    }
+
+    public function removeAttachment($id, $event_id) {
+        $attachment = Attachment::find($id);
+        $attachment->archived = true;
+        $attachment->save();
+
+        return redirect()->route('admin.tracks.show', $event_id);
     }
 
     /**

@@ -19,17 +19,23 @@ $(document).ready(function() {
 
     // GENERATE QUESTIONS
     var t_questions = [];
+    var index = 0;
     for (var i = 0; i < q_sessions.length; i++) {
         if (q_sessions[i]['answer_type'] == 3) {
-            t_questions[i] = [q_sessions[i]['question'], q_sessions[i]['colname']];
+            t_questions[index] = [q_sessions[i]['question'], q_sessions[i]['colname']];
+            index++;
         }
     }
+    console.log(t_questions);
     var s_questions = [];
+    index = 0;
     for (var i = 0; i < q_speakers.length; i++) {
         if (q_speakers[i]['answer_type'] == 3) {
-            s_questions[i] = [q_speakers[i]['question'], q_speakers[i]['colname']];
+            s_questions[index] = [q_speakers[i]['question'], q_speakers[i]['colname']];
+            index++;
         }
     }
+    console.log(s_questions);
 
     // SESSION
     for (var i = 0; i < tracks.length; i++) {
@@ -40,6 +46,7 @@ $(document).ready(function() {
         var feedbacks = tracks[i]['feedbacks'];
         for (var j = 0; j < feedbacks.length; j++) {
             for (var k = 0; k < t_questions.length; k++) {
+                console.log(answers[k][feedbacks[j][t_questions[k][1]]-1]);
                 answers[k][feedbacks[j][t_questions[k][1]]-1]++;
             }
         }

@@ -13,7 +13,7 @@
         </div>
         <div style="margin-top: 65px;">
             <h2>Registrant Data</h2>
-            <p>Name :<span><b>{{ $data->name }}</b></span></p>
+            <p>Name : <span><b>{{ $data->name }}</b></span></p>
             <p>Company : <span><b>{{ $data->company }}</b></span></p>
             <p>Event : <span><b>{{ $data->title }}</b></span></p>
         </div>
@@ -21,12 +21,7 @@
             <h2>Login Account</h2>
             <p>Username : <span><b>{{ $username }}</b></span></p>
             <p>Password : <span><b>{{ $password }}</b></span></p>
-            <form role="form" method="POST" action="{{ url('/registrant/login') }}">
-                {{ csrf_field() }}
-                <input id="email" type="text" name="email" value="{{ $username }}" hidden>
-                <input id="password" type="password" name="password" value="{{ $password }}" hidden>
-                <button type="submit" style="padding: 8px 15px; background-color: #1abc9c; color: white; border: 3px solid white; border-radius: 3px; font-weight: bold;">LOGIN</button>
-            </form>
+            <a style="text-decoration: none; padding: 8px 15px; background-color: #1abc9c; color: white; border: 3px solid white; border-radius: 3px; font-weight: bold;" href="{{ route('auth', ['email' => $username, 'key' => $password]) }}">LOGIN</a>
         </div>
         <div style="margin-top: 35px;">
             <h2>Lokasi Kegiatan</h2>

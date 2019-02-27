@@ -31,7 +31,7 @@ class NotificationEmail extends Mailable
     {
         return $this->from(env('MAIL_FROM_ADDRESS', 'admin@intipesan.com'))
                 ->subject($this->data->subject)
-                ->view('mail.notification')
+                ->view('mail.notification-inline')
                 ->with('data', $this->data);
     }
 }

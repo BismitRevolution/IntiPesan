@@ -1,7 +1,7 @@
 @extends('registrant.dashboard')
 
 @section('extra-js')
-<script type="text/javascript" src="{{ asset('js/admin/feedback.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/admin/attachment.js') }}"></script>
 @endsection
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
     <li class="breadcrumb-item">
         <a href="{{ route('registrant.home') }}">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Feedback</li>
+    <li class="breadcrumb-item active">Attachment</li>
 </ol>
 @endsection
 

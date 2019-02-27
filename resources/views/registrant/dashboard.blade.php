@@ -7,22 +7,22 @@
         <span>Feedbacks</span>
     </a>
 </li>
+<li id="nav-attachment" class="nav-item">
+    <a class="nav-link" href="{{ route('registrant.attachments.index') }}">
+        <i class="fas fa-fw fa-music"></i>
+        <span>Attachment</span>
+    </a>
+</li>
 <!-- <li id="nav-profile" class="nav-item">
     <a class="nav-link" href="#">
         <i class="fas fa-fw fa-users"></i>
         <span>Registrant</span>
     </a>
-</li>
-<li id="nav-article" class="nav-item">
+</li> -->
+<!-- <li id="nav-article" class="nav-item">
     <a class="nav-link" href="{{ route('admin.articles.index') }}">
         <i class="fas fa-fw fa-newspaper"></i>
         <span>Artikel</span>
-    </a>
-</li>
-<li id="nav-media" class="nav-item">
-    <a class="nav-link" href="#">
-        <i class="fas fa-fw fa-music"></i>
-        <span>Music</span>
     </a>
 </li> -->
 @endsection

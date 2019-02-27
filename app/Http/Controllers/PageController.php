@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Verification;
@@ -15,6 +16,19 @@ class PageController extends Controller
     //
     public function index() {
         return view('index');
+    }
+
+    public function auth($email, $key) {
+        $credentials = array('email' => $email, 'password' => $key);
+        // dd($credentials);
+        // $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('registrant')->attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('registrant.home');
+        } else {
+            return "Login failed";
+        }
     }
 
     public function home() {
@@ -90,17 +104,17 @@ class PageController extends Controller
         // $qrcode->writeFile($path);
 
         $data = DB::table('registrant_datas')
-                            ->where('registrant_datas.registrant_id', '=', 1)
+                            ->where('registrant_datas.registrant_id', '=', 4)
                             ->join('notifications', 'notifications.event_id', '=', 'registrant_datas.event_id')
-                            ->where('notifications.type', '=', 1)
+                            ->where('notifications.type', '=', -1)
                             ->join('events', 'events.event_id', '=', 'registrant_datas.event_id')
                             ->first();
         return view('mail.registration-inline')->with([
         // return view('mail.notification')->with([
             'data' => $data,
-            'path' => 'http://localhost:8000/img/qrcodes/o81XaFCJKrPb52ePRIgkahL6.png',
+            'path' => 'http://localhost:8000/img/qrcodes/JkxwF1CRn6TWRueO5LDnEv4O.png',
             'username' => $data->registration_code,
-            'password' => 'KHG8syZu',
+            'password' => 'Fnp2MOAq',
             // 'username' => 'admin@bismitrevolution.com',
             // 'password' => 'admin'
         ]);

@@ -112,7 +112,7 @@
 						<th class="align-middle">No</th>
 						<th class="align-middle">Question</th>
                         <th class="align-middle">Question Type</th>
-						<th class="align-middle">Required</th>
+						<!-- <th class="align-middle">Required</th> -->
 						<th class="align-middle">Created At</th>
 						<th class="align-middle">Updated At</th>
 						<th class="align-middle">Actions</th>
@@ -137,7 +137,7 @@
                             @break
                             @endswitch
                         </td>
-						<td>
+						<!-- <td>
 							@switch($question->required)
 							@case(true)
 								YES
@@ -146,7 +146,7 @@
 								NO
 							@break
 							@endswitch
-						</td>
+						</td> -->
 						<td class="cell-max">{{ $question->created_at }}</td>
 						<td class="cell-max">{{ $question->updated_at }}</td>
 						<td class="cell-max">

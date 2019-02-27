@@ -14,7 +14,7 @@ class AddFormColumn extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('form_url')->default(null);
+            $table->string('form_url')->nullable();
         });
     }
 

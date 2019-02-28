@@ -35,6 +35,13 @@ class PageController extends Controller
         return view('registrant.pages.hrexpo');
     }
 
+    public function print($name, $role) {
+        return view('nametag')->with([
+            'name' => $name,
+            'role' => $role
+        ]);
+    }
+
     public function verify(Request $request, $id) {
         $registrant = DB::table('registrant_datas')
                             ->where('registrant_datas.registration_token', '=', $id)

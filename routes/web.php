@@ -21,6 +21,7 @@ Route::get('/test', 'PageController@test')->name('test');
 Route::get('/auth/{email}/{key}', 'PageController@auth')->name('auth');
 Route::get('/verify/{id}', 'PageController@verify')->name('verify');
 Route::get('/notify', 'PageController@notify')->name('notify');
+Route::get('/print/{name}/{role}', 'PageController@print')->name('print');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
